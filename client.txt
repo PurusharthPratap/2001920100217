@@ -1,6 +1,8 @@
-"companyName": "Train Central",
-    "clientID": "7ff5cf80-9cf5-40d2-8e9d-ee0be446cfc5",
-    "clientSecret": "yMmVTDwokzVJUlvR",
-    "ownerName": "Dhananjay Gupta",
-    "ownerEmail": "ec20119@glbitm.ac.in",
-    "rollNo": "2001920310058"
+{
+    "companyName": "Train Central",
+    "clientID": "1340289d-7a61-4fdb-a138-6c6e4850858f",
+    "clientSecret": "AzceEsIpdYbrhfkV",
+    "ownerName": "Purusharth Pratap",
+    "ownerEmail": "cs20057@glbitm.ac.in",
+    "rollNo": "2001920100217"
+}
