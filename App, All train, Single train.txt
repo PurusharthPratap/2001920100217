@@ -1,0 +1,86 @@
+//App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import AllTrains from './AllTrains';
+import SingleTrain from './SingleTrain';
+
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/" component={AllTrains} />
+        <Route path="/train/:id" component={SingleTrain} />
+      </Switch>
+    </Router>
+  );
+}
+
+export default App;
+
+
+//AllTrains.js
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+function AllTrains() {
+  const [trains, setTrains] = useState([]);
+
+  useEffect(() => {
+    // Fetch train data from API and update state
+    const fetchTrainsData = async () => {
+      try {
+        const response = await axios.get('API_ENDPOINT_URL');
+        const trainsData = response.data;
+        // Process and sort trainsData based on requirements
+        setTrains(sortedAndFilteredTrains);
+      } catch (error) {
+        console.error('Error fetching train data', error);
+      }
+    };
+
+    fetchTrainsData();
+  }, []);
+
+  return (
+    <div>
+      {/* Display trains data here */}
+    </div>
+  );
+}
+
+export default AllTrains;
+
+
+//SingleTrain.js
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+
+function SingleTrain() {
+  const { id } = useParams();
+  const [train, setTrain] = useState(null);
+
+  useEffect(() => {
+    // Fetch single train data from API and update state
+    const fetchTrainData = async () => {
+      try {
+        const response = await axios.get(`API_ENDPOINT_URL/${id}`);
+        setTrain(response.data);
+      } catch (error) {
+        console.error('Error fetching train data', error);
+      }
+    };
+
+    fetchTrainData();
+  }, [id]);
+
+  return (
+    <div>
+      {/* Display single train data here */}
+    </div>
+  );
+}
+
+export default SingleTrain;
